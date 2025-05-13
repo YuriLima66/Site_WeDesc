@@ -41,7 +41,7 @@ const Footer: React.FC = () => {
                 <Facebook className="h-5 w-5" />
               </a>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/we.desc/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-wedesc-yellow transition-colors"
@@ -59,7 +59,7 @@ const Footer: React.FC = () => {
                 <Twitter className="h-5 w-5" />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/company/wedesctecnologia/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-wedesc-yellow transition-colors"
