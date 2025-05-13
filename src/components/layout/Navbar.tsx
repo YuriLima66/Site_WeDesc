@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import {
@@ -44,7 +43,9 @@ const Navbar: React.FC = () => {
     return cn(
       navigationMenuTriggerStyle(),
       "text-white bg-transparent hover:bg-black/20",
-      isActive(path) ? "text-wedesc-yellow hover:text-wedesc-yellow bg-black/20" : "hover:text-wedesc-yellow"
+      isActive(path)
+        ? "text-wedesc-yellow hover:text-wedesc-yellow bg-black/20"
+        : "hover:text-wedesc-yellow"
     );
   };
 
@@ -57,9 +58,11 @@ const Navbar: React.FC = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
           <Link to="/" className="flex items-center">
-            <h1 className="text-white text-3xl font-bold">
-              <span className="text-wedesc-yellow">WeDesc</span>.
-            </h1>
+            <img
+              src="/public/lovable-uploads/weDesc_branco.png"
+              alt="WeDesc Logo"
+              className="h-10"
+            />
           </Link>
 
           {/* Desktop Menu */}
@@ -67,7 +70,15 @@ const Navbar: React.FC = () => {
             <NavigationMenu>
               <NavigationMenuList className="gap-1">
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className={`text-white hover:text-wedesc-yellow bg-black ${location.pathname === "/it-support" || location.pathname === "/security" || location.pathname === "/cloud" ? "text-wedesc-yellow bg-black/50" : "hover:bg-black/50"}`}>
+                  <NavigationMenuTrigger
+                    className={`text-white hover:text-wedesc-yellow bg-black ${
+                      location.pathname === "/it-support" ||
+                      location.pathname === "/security" ||
+                      location.pathname === "/cloud"
+                        ? "text-wedesc-yellow bg-black/50"
+                        : "hover:bg-black/50"
+                    }`}
+                  >
                     Serviços
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
@@ -94,15 +105,15 @@ const Navbar: React.FC = () => {
                       >
                         Suporte técnico e gestão completa de TI
                       </ListItem>
-                      <ListItem 
-                        to="/security" 
+                      <ListItem
+                        to="/security"
                         title="Soluções em Segurança"
                         active={isActive("/security")}
                       >
                         Proteção total para seus dados e sistemas
                       </ListItem>
-                      <ListItem 
-                        to="/cloud" 
+                      <ListItem
+                        to="/cloud"
                         title="Soluções em Nuvem"
                         active={isActive("/cloud")}
                       >
@@ -113,20 +124,26 @@ const Navbar: React.FC = () => {
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className={`text-white hover:text-wedesc-yellow bg-transparent ${location.pathname.includes("/segment/") ? "text-wedesc-yellow bg-black/20" : "hover:bg-black/20"}`}>
+                  <NavigationMenuTrigger
+                    className={`text-white hover:text-wedesc-yellow bg-transparent ${
+                      location.pathname.includes("/segment/")
+                        ? "text-wedesc-yellow bg-black/20"
+                        : "hover:bg-black/20"
+                    }`}
+                  >
                     Segmentos
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-2">
-                      <ListItem 
-                        to="/segment/industry" 
+                      <ListItem
+                        to="/segment/industry"
                         title="Indústria"
                         active={isActive("/segment/industry")}
                       >
                         Soluções de TI para o setor industrial
                       </ListItem>
-                      <ListItem 
-                        to="/segment/service" 
+                      <ListItem
+                        to="/segment/service"
                         title="Serviços"
                         active={isActive("/segment/service")}
                       >
@@ -139,8 +156,8 @@ const Navbar: React.FC = () => {
                       >
                         TI e segurança para logística
                       </ListItem>
-                      <ListItem 
-                        to="/segment/retail" 
+                      <ListItem
+                        to="/segment/retail"
                         title="Varejo"
                         active={isActive("/segment/retail")}
                       >
@@ -161,9 +178,7 @@ const Navbar: React.FC = () => {
 
                 <NavigationMenuItem>
                   <Link to="/about">
-                    <NavigationMenuLink
-                      className={getNavLinkClass("/about")}
-                    >
+                    <NavigationMenuLink className={getNavLinkClass("/about")}>
                       Sobre
                     </NavigationMenuLink>
                   </Link>
@@ -171,9 +186,7 @@ const Navbar: React.FC = () => {
 
                 <NavigationMenuItem>
                   <Link to="/career">
-                    <NavigationMenuLink
-                      className={getNavLinkClass("/career")}
-                    >
+                    <NavigationMenuLink className={getNavLinkClass("/career")}>
                       Carreira
                     </NavigationMenuLink>
                   </Link>
@@ -181,9 +194,7 @@ const Navbar: React.FC = () => {
 
                 <NavigationMenuItem>
                   <Link to="/contact">
-                    <NavigationMenuLink
-                      className={getNavLinkClass("/contact")}
-                    >
+                    <NavigationMenuLink className={getNavLinkClass("/contact")}>
                       Contato
                     </NavigationMenuLink>
                   </Link>
@@ -244,70 +255,110 @@ const Navbar: React.FC = () => {
           <div className="md:hidden mt-4 py-2 bg-black/95 rounded-md border border-gray-800 animate-fade-in">
             <Link
               to="/it-support"
-              className={`block px-4 py-2 ${isActive("/it-support") ? "text-wedesc-yellow" : "text-white hover:text-wedesc-yellow"} transition-all duration-300`}
+              className={`block px-4 py-2 ${
+                isActive("/it-support")
+                  ? "text-wedesc-yellow"
+                  : "text-white hover:text-wedesc-yellow"
+              } transition-all duration-300`}
               onClick={toggleMobileMenu}
             >
               Gestão e Suporte de TI
             </Link>
             <Link
               to="/security"
-              className={`block px-4 py-2 ${isActive("/security") ? "text-wedesc-yellow" : "text-white hover:text-wedesc-yellow"} transition-all duration-300`}
+              className={`block px-4 py-2 ${
+                isActive("/security")
+                  ? "text-wedesc-yellow"
+                  : "text-white hover:text-wedesc-yellow"
+              } transition-all duration-300`}
               onClick={toggleMobileMenu}
             >
               Soluções em Segurança
             </Link>
             <Link
               to="/cloud"
-              className={`block px-4 py-2 ${isActive("/cloud") ? "text-wedesc-yellow" : "text-white hover:text-wedesc-yellow"} transition-all duration-300`}
+              className={`block px-4 py-2 ${
+                isActive("/cloud")
+                  ? "text-wedesc-yellow"
+                  : "text-white hover:text-wedesc-yellow"
+              } transition-all duration-300`}
               onClick={toggleMobileMenu}
             >
               Soluções em Nuvem
             </Link>
             <Link
               to="/segment/retail"
-              className={`block px-4 py-2 ${isActive("/segment/retail") ? "text-wedesc-yellow" : "text-white hover:text-wedesc-yellow"} transition-all duration-300`}
+              className={`block px-4 py-2 ${
+                isActive("/segment/retail")
+                  ? "text-wedesc-yellow"
+                  : "text-white hover:text-wedesc-yellow"
+              } transition-all duration-300`}
               onClick={toggleMobileMenu}
             >
               Varejo
             </Link>
             <Link
               to="/segment/industry"
-              className={`block px-4 py-2 ${isActive("/segment/industry") ? "text-wedesc-yellow" : "text-white hover:text-wedesc-yellow"} transition-all duration-300`}
+              className={`block px-4 py-2 ${
+                isActive("/segment/industry")
+                  ? "text-wedesc-yellow"
+                  : "text-white hover:text-wedesc-yellow"
+              } transition-all duration-300`}
               onClick={toggleMobileMenu}
             >
               Indústria
             </Link>
             <Link
               to="/segment/service"
-              className={`block px-4 py-2 ${isActive("/segment/service") ? "text-wedesc-yellow" : "text-white hover:text-wedesc-yellow"} transition-all duration-300`}
+              className={`block px-4 py-2 ${
+                isActive("/segment/service")
+                  ? "text-wedesc-yellow"
+                  : "text-white hover:text-wedesc-yellow"
+              } transition-all duration-300`}
               onClick={toggleMobileMenu}
             >
               Serviços
             </Link>
             <Link
               to="/about"
-              className={`block px-4 py-2 ${isActive("/about") ? "text-wedesc-yellow" : "text-white hover:text-wedesc-yellow"} transition-all duration-300`}
+              className={`block px-4 py-2 ${
+                isActive("/about")
+                  ? "text-wedesc-yellow"
+                  : "text-white hover:text-wedesc-yellow"
+              } transition-all duration-300`}
               onClick={toggleMobileMenu}
             >
               Sobre a WeDesc
             </Link>
             <Link
               to="/security"
-              className={`block px-4 py-2 ${isActive("/security") ? "text-wedesc-yellow" : "text-white hover:text-wedesc-yellow"} transition-all duration-300`}
+              className={`block px-4 py-2 ${
+                isActive("/security")
+                  ? "text-wedesc-yellow"
+                  : "text-white hover:text-wedesc-yellow"
+              } transition-all duration-300`}
               onClick={toggleMobileMenu}
             >
               Segurança
             </Link>
             <Link
               to="/career"
-              className={`block px-4 py-2 ${isActive("/career") ? "text-wedesc-yellow" : "text-white hover:text-wedesc-yellow"} transition-all duration-300`}
+              className={`block px-4 py-2 ${
+                isActive("/career")
+                  ? "text-wedesc-yellow"
+                  : "text-white hover:text-wedesc-yellow"
+              } transition-all duration-300`}
               onClick={toggleMobileMenu}
             >
               Carreira
             </Link>
             <Link
               to="/contact"
-              className={`block px-4 py-2 ${isActive("/contact") ? "text-wedesc-yellow" : "text-white hover:text-wedesc-yellow"} transition-all duration-300`}
+              className={`block px-4 py-2 ${
+                isActive("/contact")
+                  ? "text-wedesc-yellow"
+                  : "text-white hover:text-wedesc-yellow"
+              } transition-all duration-300`}
               onClick={toggleMobileMenu}
             >
               Contato
@@ -328,7 +379,11 @@ const Navbar: React.FC = () => {
 
 const ListItem = React.forwardRef<
   React.ElementRef<"a">,
-  React.ComponentPropsWithoutRef<"a"> & { to: string; title: string; active?: boolean }
+  React.ComponentPropsWithoutRef<"a"> & {
+    to: string;
+    title: string;
+    active?: boolean;
+  }
 >(({ className, to, title, active, children, ...props }, ref) => {
   return (
     <li>
@@ -337,8 +392,8 @@ const ListItem = React.forwardRef<
           to={to}
           className={cn(
             "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors",
-            active 
-              ? "bg-accent text-accent-foreground hover:bg-accent/80 text-wedesc-yellow" 
+            active
+              ? "bg-accent text-accent-foreground hover:bg-accent/80 text-wedesc-yellow"
               : "hover:bg-accent hover:text-accent-foreground",
             className
           )}

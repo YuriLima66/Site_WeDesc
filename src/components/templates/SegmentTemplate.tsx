@@ -69,7 +69,7 @@ const SegmentTemplate: React.FC<SegmentTemplateProps> = ({
               className="max-w-3xl"
             >
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                Soluções WM4 para o Setor {segmentName}
+                Soluções WeDesc para o Setor de {segmentName}
               </h1>
               <p className="text-lg md:text-xl mb-8">{subtitle}</p>
               <Link
