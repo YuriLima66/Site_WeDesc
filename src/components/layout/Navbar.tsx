@@ -166,6 +166,15 @@ const Navbar: React.FC = () => {
                     </ul>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <Link to="/security">
+                    <NavigationMenuLink
+                      className={getNavLinkClass("/security")}
+                    >
+                      Segurança
+                    </NavigationMenuLink>
+                  </Link>
+                </NavigationMenuItem>
 
                 <NavigationMenuItem>
                   <Link to="/about">
